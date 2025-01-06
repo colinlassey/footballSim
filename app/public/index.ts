@@ -49,14 +49,17 @@ class Game {
     startGame() {
         this.quarter = 1;
         this.time = 900;
+        console.log('game started...');
     }
 
     coinToss() {
         let random : number = Math.random();
         if (random <= 0.49) {
             this.possession = 0;
+            console.log('home team wins!');
         } else {
             this.possession = 1;
+            console.log('away team wins!');
         }
     }
 
@@ -65,6 +68,7 @@ class Game {
         if (random < 0.8) {
             console.log('Touchback');
         } else if (random > 0.81 && random < 0.95) {
+
             console.log('Bringing it out!');
         } else {
             this.yardLine = 40;
@@ -105,3 +109,8 @@ const player4 = new Player("Aaron Jones", "RB", 8);
 const team2 = new Team("Minnesota Vikings", [player3, player4]);
 
 const game = new Game(team1, team2);
+game.startGame();
+game.coinToss();
+game.kickoff();
+game.runPlay("run");
+game.runPlay("pass");
